@@ -1,7 +1,7 @@
 ## Monitoring Logs with Alloy, Loki and Grafana 
 
 
-Below is the complete setup how to use Grafana/alloy, Grafana/loki and Grafana web UI to collect, store, query,log files from host systems, containers, applications, cloud and infrastructures.  
+Below is the complete setup how to use Grafana/alloy, Grafana/loki and Grafana web UI to collect, store, query, log files from host systems, containers, applications, cloud and infrastructures.  
 
 To simplify the setup, I use Grafana, Alloy and Loki docker images to monitor/visualize containers' log files, host service log files and some other local log files.  
 
