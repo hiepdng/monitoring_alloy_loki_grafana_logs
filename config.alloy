@@ -26,6 +26,7 @@ local.file_match "host_logs" {
   path_targets = [
     {__path__ = "/var/log/**/*.log"},
     {__path__ = "/var/log/syslog", "job" = "syslog"},
+    {__path__ = "/var/log/auth.log", "job" = "auth"},
   ]
 }
 loki.source.file "local_files" {
