@@ -9,10 +9,10 @@ To simplify the setup, I use Grafana, Alloy and Loki docker images to monitor/vi
 Run the below commands to download the demo repository and run Grafana web UI.  
 ```bash
 #Downloading the repository
-git clone git@github.com:hiepdng/monitoring_alloy_loki_grafana_logs.git
+git clone git@github.com:hiepdng/monitoring_logs_with_alloy_loki_grafana.git
 
 #Creating volumes
-cd monitoring_alloy_loki_grafana_logs
+cd monitoring_logs_with_alloy_loki_grafana
 mkdir grafana_data
 sudo chown -R 472:472 grafana_data
 mkdir loki_data
