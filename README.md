@@ -9,10 +9,10 @@ To simplify the setup, I use docker images to monitor/visualize Prometheus conta
 Run the below commands to download and Prometheus and Grafana.  
 ```bash
 #Downloading the repository
-git clone git@github.com:hiepdng/prometheus_grafana_metrics.git
+git clone git@github.com:hiepdng/monitoring_alloy_loki_grafana_logs.git
 
 #Creating volumes
-cd prometheus_grafana_metrics
+cd monitoring_alloy_loki_grafana_logs
 mkdir grafana_data
 sudo chown -R 472:472 grafana_data
 mkdir loki_data
@@ -27,9 +27,9 @@ docker compose up -d
 Go to http://localhost:3000/ to access your local Grafana webpage and view the host and containers metrics.  
 
 To view specific container webpages:  
-- Prometheus: http://localhost:9090/ or http://localhost:9090/metrics
-- Node-exporter: http://localhost:9100/ or http://localhost:9100/metrics
-- Grafana: http://localhost:3000/metrics  
+- Alloy: http://localhost:12345/
+- Loki: http://localhost:9100/ready
+ 
 
 **View Grafana Drilldown Metrics:**  
 In the Grafana webpage (http://localhost:3000/), by default the Drilldown Metrics will display all metrics from Prometheus container, Grafana container and host system metrics. To filter and view only Prometheus metrics:  
