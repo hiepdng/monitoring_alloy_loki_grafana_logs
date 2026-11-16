@@ -35,7 +35,6 @@ loki.source.file "local_files" {
 }
 
 // Collect service logs on the host
-// 1. Read systemd journal logs
 loki.source.journal "system" {
   max_age    = "24h"
   forward_to = [loki.write.local_loki.receiver]
