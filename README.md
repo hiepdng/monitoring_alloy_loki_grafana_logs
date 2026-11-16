@@ -1,4 +1,4 @@
-## Monitoring Logs with Prometheus and Grafana 
+## Monitoring Logs with Alloy, Loki and Grafana 
 
 
 Below is the complete setup how to use Prometheus and Grafana to collect, store, query, and visualize numerical performance data (time-series metrics) from systems, containers, applications, cloud and infrastructures.  
