@@ -1,0 +1,47 @@
+logging {
+  level  = "info"
+  format = "logfmt"
+}
+
+// Collect docker containers logs
+discovery.docker "local_containers" {
+  host = "unix:///var/run/docker.sock"
+}
+discovery.relabel "docker_logs" {
+  targets = discovery.docker.local_containers.targets
+  rule {
+    source_labels = ["__meta_docker_container_name"]
+    regex         = "/(.*)"
+    target_label  = "container"
+  }
+}
+loki.source.docker "container_logs" {
+  host       = "unix:///var/run/docker.sock"
+  targets    = discovery.relabel.docker_logs.output
+  forward_to = [loki.write.local_loki.receiver]
+}
+
+// Collect certain log files on the host
+local.file_match "host_logs" {
+  path_targets = [
+    {__path__ = "/var/log/**/*.log"},
+  ]
+}
+loki.source.file "local_files" {
+  targets    = local.file_match.host_logs.targets
+  forward_to = [loki.write.local_loki.receiver]
+}
+
+// Collect service logs on the host
+// 1. Read systemd journal logs
+loki.source.journal "system" {
+  max_age    = "24h"
+  forward_to = [loki.write.local_loki.receiver]
+}
+
+// Send the telemetry data to your Loki endpoint
+loki.write "local_loki" {
+  endpoint {
+    url = "http://loki:3100/loki/api/v1/push"
+  }
+}
