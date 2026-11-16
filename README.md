@@ -1,12 +1,12 @@
 ## Monitoring Logs with Alloy, Loki and Grafana 
 
 
-Below is the complete setup how to use Prometheus and Grafana to collect, store, query, and visualize numerical performance data (time-series metrics) from systems, containers, applications, cloud and infrastructures.  
+Below is the complete setup how to use Grafana/alloy, Grafana/loki and Grafana to collect, store, query,log files from host systems, containers, applications, cloud and infrastructures.  
 
-To simplify the setup, I use docker images to monitor/visualize Prometheus container's metrics, Grafana container's metrics and host system metrics (using node-exporter).
+To simplify the setup, I use Grafana, Alloy and Loki docker images to monitor/visualize containers' log files, host service log files and some other local log files.  
 
 **Setup**  
-Run the below commands to download and Prometheus and Grafana.  
+Run the below commands to download the demo repository and run Grafana web UI.  
 ```bash
 #Downloading the repository
 git clone git@github.com:hiepdng/monitoring_alloy_loki_grafana_logs.git
@@ -40,5 +40,5 @@ Click `Add label tab` to add more tabs.
   - Increate the `max_line_size` on the loki-config.yaml file.  
   - increase the `batch_size` in the config.alloy file.  
   - Add alloy user the group othe log file you try to monitor, for example:  
-    $ usermod -aG adm alloy  
+    `$ usermod -aG adm alloy`   
 
