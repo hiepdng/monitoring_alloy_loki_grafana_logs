@@ -32,15 +32,13 @@ To view specific container webpages:
  
 
 **View Grafana Drilldown Logs:**  
-In the Grafana webpage (http://localhost:3000/), by default the Drilldown Logs will display all metrics from Prometheus container, Grafana container and host system metrics. To filter and view only Prometheus metrics:  
- - Click filter and enter: `job = prometheus`.
- - Do similar for node_exporter or grafana: `job = node_exporter` or `job = grafana`
+In the Grafana webpage (http://localhost:3000/), by default the Drilldown Logs will display service label tab.  
+Click `Add label tab` to add more tabs.  
 
-**Import pre-built Grafana dashboard:**  
-Instead of building my own custom dashboard, I use a pre-built dashboard (ID = 1800) from https://grafana.com/grafana/dashboards/. This dashboard is for node-exporter (host computer) metrics.  
-- Go to Grafana web http://localhost:3000/
-- Click on **Dashboard** ->**new** ->**Import**
-- Enter **1860** in the ID slot
-- Click **Load** ->**Import**  
-Now you can view all the plots that represent the metrics on the Grafana dashboard.  
+**Note:**  
+- Not all log files are collected because file size and permission. To fix these problems:  
+  - Increate the `max_line_size` on the loki-config.yaml file.  
+  - increase the `batch_size` in the config.alloy file.  
+  - Add alloy user the group othe log file you try to monitor, for example:  
+    $ usermod -aG adm alloy  
 
