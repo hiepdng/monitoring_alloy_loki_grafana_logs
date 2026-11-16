@@ -31,8 +31,8 @@ To view specific container webpages:
 - Loki: http://localhost:9100/ready
  
 
-**View Grafana Drilldown Metrics:**  
-In the Grafana webpage (http://localhost:3000/), by default the Drilldown Metrics will display all metrics from Prometheus container, Grafana container and host system metrics. To filter and view only Prometheus metrics:  
+**View Grafana Drilldown Logs:**  
+In the Grafana webpage (http://localhost:3000/), by default the Drilldown Logs will display all metrics from Prometheus container, Grafana container and host system metrics. To filter and view only Prometheus metrics:  
  - Click filter and enter: `job = prometheus`.
  - Do similar for node_exporter or grafana: `job = node_exporter` or `job = grafana`
 
